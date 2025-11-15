@@ -15,7 +15,7 @@ kubectl describe deployment python-web-deployment
 
 kubectl apply -f python-service.yaml
 kubectl get svc
-
+minikube service python-web-service --url
 
 kubectl delete -f python-service.yaml
 kubectl delete -f python-deployment.yaml
