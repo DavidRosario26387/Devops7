@@ -1,0 +1,23 @@
+
+
+minikube start --driver=docker
+
+docker build -t <your-dockerhub-username>/flaskimage:1.0 .
+
+docker login
+docker push <your-dockerhub-username>/flaskimage:1.0
+
+kubectl apply -f python-deployment.yaml
+kubectl get deployments
+kubectl get pods (wait till status turns -> running )
+
+kubectl describe deployment python-web-deployment
+
+kubectl apply -f python-service.yaml
+kubectl get svc
+
+
+kubectl delete -f python-service.yaml
+kubectl delete -f python-deployment.yaml
+minikube stop
+minikube delete
